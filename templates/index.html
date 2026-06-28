@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claims Integrity Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="eyebrow">Payment Integrity</span>
+    <h1>Claims Integrity Console</h1>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="num">{{ lift }}x</span><span class="lbl">lift over base, out-of-sample</span></div>
+    <div class="stat"><span class="num">{{ base }}%</span><span class="lbl">base fraud rate</span></div>
+    <div class="stat"><span class="num">{{ n }}</span><span class="lbl">providers scored</span></div>
+  </div>
+</header>
+
+<main class="workspace">
+  <section class="worklist">
+    <div class="panel-head">
+      <h2>Review queue</h2>
+      <p>Ranked by anomaly score. Highest risk first.</p>
+    </div>
+    <div id="queue" class="queue"></div>
+  </section>
+
+  <section class="casefile" id="casefile">
+    <div class="empty" id="empty">
+      <p>Select a provider from the queue to open its case file.</p>
+    </div>
+    <div class="detail" id="detail" hidden>
+      <div class="detail-head">
+        <div>
+          <span class="eyebrow">Provider</span>
+          <h2 id="d-id">—</h2>
+        </div>
+        <div class="meter">
+          <div class="meter-track"><div class="meter-fill" id="d-meter"></div></div>
+          <span class="meter-val" id="d-score">—</span>
+        </div>
+      </div>
+      <div class="chips" id="d-chips"></div>
+
+      <div class="section-label">Deviation fingerprint <span>standard deviations from peer average</span></div>
+      <div id="d-bars" class="bars"></div>
+
+      <div class="section-label">Reviewer briefing</div>
+      <div class="briefing">
+        <button id="explain-btn">Generate explanation</button>
+        <p id="d-explain" class="explain-text">Generates a plain-language summary of the evidence above. The model only narrates the computed deviations; it does not decide.</p>
+        <span id="d-source" class="source-tag" hidden></span>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
