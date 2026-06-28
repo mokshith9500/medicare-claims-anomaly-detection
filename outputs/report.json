@@ -1,0 +1,61 @@
+{
+  "data_source": "real",
+  "unsupervised_out_of_sample": {
+    "test_providers": 1623,
+    "base_fraud_rate": 0.0937,
+    "flagged": 163,
+    "precision": 0.1963,
+    "recall": 0.2105,
+    "lift_over_base_rate": 2.1,
+    "true_positives": 32,
+    "false_positives": 131,
+    "false_negatives": 120,
+    "triage": [
+      {
+        "top_k": 25,
+        "precision": 0.32,
+        "lift": 3.42
+      },
+      {
+        "top_k": 50,
+        "precision": 0.22,
+        "lift": 2.35
+      },
+      {
+        "top_k": 100,
+        "precision": 0.23,
+        "lift": 2.46
+      },
+      {
+        "top_k": 150,
+        "precision": 0.213,
+        "lift": 2.28
+      }
+    ]
+  },
+  "supervised_baseline": {
+    "auc": 0.937,
+    "precision_at_10pct": 0.593,
+    "lift_at_10pct": 6.33,
+    "base_rate": 0.094,
+    "top_features": {
+      "procedures_per_claim": 0.13,
+      "deductible_ratio": 0.1,
+      "pct_inpatient": 0.098,
+      "mean_los": 0.091,
+      "dollars_per_claim": 0.09,
+      "reimb_max_to_mean": 0.077
+    }
+  },
+  "stability_across_seeds": {
+    "lift_mean": 2.14,
+    "lift_std": 0.3,
+    "lifts": [
+      2.1,
+      2.23,
+      2.42,
+      1.57,
+      2.36
+    ]
+  }
+}
