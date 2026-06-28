@@ -81,3 +81,6 @@ The dataset's `PotentialFraud` flag is a provided label of unknown adjudication,
 not confirmed fraud. Reported metrics measure agreement with that label. This and
 other limitations (specialty peer-grouping, claim-line granularity, scale,
 governance) are documented in LIMITATIONS.md.
+
+## Video Walkthrough
+[Watch the demo](https://drive.google.com/file/d/1mfEfjDcNY89nCplHud8n7dJ-Rptkp3eK/view?usp=sharing)
